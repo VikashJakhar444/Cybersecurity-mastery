@@ -7,7 +7,7 @@ Fundamental command-line utility tools for network and text processing.
 *   [**ping**](001_ping.md)
 *   [**ip - Version 1 (Read-Only)**](002_ip_v1.md)
 *   [**ip - Version 2 (Modification)**](002_ip_v2.md)
-*   ~~ss~~ (Pending)
+*   [**ss**](003_ss.md)
 *   ~~dig~~ (Pending)
 *   ~~curl~~ (Pending)
 *   ~~wget~~ (Pending)
