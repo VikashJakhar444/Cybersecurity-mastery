@@ -8,7 +8,7 @@ Fundamental command-line utility tools for network and text processing.
 *   [**ip - Version 1 (Read-Only)**](002_ip_v1.md)
 *   [**ip - Version 2 (Modification)**](002_ip_v2.md)
 *   [**ss**](003_ss.md)
-*   ~~dig~~ (Pending)
+*   [**dig**](004_dig.md)
 *   ~~curl~~ (Pending)
 *   ~~wget~~ (Pending)
 *   ~~netcat~~ (Pending)

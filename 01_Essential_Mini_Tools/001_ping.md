@@ -8,11 +8,11 @@
 
 # 1. Introduction
 
-`ping` ek command-line networking utility hai jo kisi host (IP ya Domain) ki reachability check karne ke liye use hoti hai.
+`ping` is a command-line networking utility used to test the reachability of a host (IP address or Domain).
 
-Ye **ICMP (Internet Control Message Protocol)** ka use karke target ko **Echo Request** bhejta hai aur **Echo Reply** ka wait karta hai.
+It sends an **Echo Request** to the target using the **ICMP (Internet Control Message Protocol)** and waits for an **Echo Reply**.
 
-Agar reply mil jaye to generally iska matlab target reachable hai (agar ICMP blocked na ho).
+If a reply is received, it generally means the target is reachable (unless ICMP is blocked).
 
 Simple Flow:
 
@@ -30,9 +30,9 @@ Your Computer
 
 # 2. Why We Use It?
 
-Ping almost har Network Engineer, System Administrator aur Cybersecurity Professional ka pehla tool hota hai.
+Ping is usually the first tool used by almost every Network Engineer, System Administrator, and Cybersecurity Professional.
 
-Iska use:
+Its uses:
 
 - Check whether a host is reachable.
 - Verify network connectivity.
@@ -94,13 +94,13 @@ Custom Packet Size
 ping -s 1000 8.8.8.8
 ```
 
-Interval Between Packets(time period between each packet)
+Interval Between Packets (time period between each packet)
 
 ```bash
 ping -i 2 8.8.8.8
 ```
 
-Timeout(here it will wait for 2 sec)
+Timeout (here it will wait for 2 seconds)
 
 ```bash
 ping -W 2 8.8.8.8
@@ -152,9 +152,9 @@ Target IP address.
 
 #### `56(84) bytes of data`
 
-Yeh beginners ko confuse karta hai.
+This often confuses beginners.
 
-Iska matlab:
+It means:
 
 ```
 56 Bytes
@@ -162,7 +162,7 @@ Iska matlab:
 
 Actual ICMP payload.
 
-Aur
+And
 
 ```
 84 Bytes
@@ -188,21 +188,19 @@ Calculation:
 84 Bytes
 ```
 
-Isliye Linux
+That is why Linux displays it this way:
 
 ```
 56(84)
 ```
 
-show karta hai.
-
 ---
 
 #### `64 bytes from`
 
-Matlab reply successfully receive ho gaya.
+This means the reply was successfully received.
 
-Request gayi aur target ne response diya.
+The request was sent and the target responded.
 
 ---
 
@@ -216,7 +214,7 @@ icmp_seq=3
 
 Packet numbering.
 
-Agar hota
+If it showed:
 
 ```text
 1
@@ -225,7 +223,7 @@ Agar hota
 5
 ```
 
-To packet number 3 lost ho gaya.
+Then packet number 3 was lost.
 
 ---
 
@@ -233,7 +231,7 @@ To packet number 3 lost ho gaya.
 
 TTL = Time To Live
 
-Ye packet kitne routers survive kar sakta hai.
+It indicates how many routers (hops) the packet can pass through before being discarded.
 
 Typical Initial TTL
 
@@ -243,11 +241,11 @@ Windows → 128
 
 Routers → 255
 
-Dhyan rahe:
+Note:
 
-Received TTL se exact OS identify nahi hota.
+The received TTL value does not identify the exact OS.
 
-Ye sirf ek rough hint hai.
+It is only a rough hint.
 
 ---
 
@@ -255,11 +253,11 @@ Ye sirf ek rough hint hai.
 
 Round Trip Time (RTT)
 
-Request gayi
+Request sent
 
 ↓
 
-Reply aaya
+Reply received
 
 ↓
 
@@ -269,9 +267,9 @@ Total Time
 0.043 milliseconds
 ```
 
-Itna kam isliye hai kyunki packet network me gaya hi nahi.
+It is so low because the packet never traveled through the network.
 
-Ye sirf tumhari machine ke andar hi travel hua.
+It only traveled within your own machine.
 
 ---
 
@@ -281,7 +279,7 @@ Ye sirf tumhari machine ke andar hi travel hua.
 11 packets transmitted
 ```
 
-11 packets bheje gaye.
+11 packets were sent.
 
 ---
 
@@ -289,7 +287,7 @@ Ye sirf tumhari machine ke andar hi travel hua.
 11 received
 ```
 
-11 replies receive hui.
+11 replies were received.
 
 ---
 
@@ -297,7 +295,7 @@ Ye sirf tumhari machine ke andar hi travel hua.
 0% packet loss
 ```
 
-Ek bhi packet lose nahi hua.
+Not a single packet was lost.
 
 Excellent.
 
@@ -316,17 +314,17 @@ rtt min/avg/max/mdev
 | max | Slowest reply |
 | mdev | Response variation |
 
-Agar `mdev` bahut high ho to unstable network indicate kar sakta hai.
+A very high `mdev` value can indicate an unstable network connection.
 
 ---
 
 ### Important Learning
 
-`127.0.0.1` ko Loopback Address kehte hain.
+`127.0.0.1` is called the Loopback Address.
 
-Ye tumhari khud ki machine hoti hai.
+It represents your own local machine.
 
-Packet kabhi network me nahi jata.
+The packet never leaves the local network interface.
 
 Flow:
 
@@ -358,15 +356,15 @@ PING localhost (::1)
 
 Question:
 
-127.0.0.1 kyu nahi aaya?
+Why did it not show 127.0.0.1?
 
 Reason:
 
-`localhost` IP address nahi hai.
+`localhost` is not an IP address.
 
-Ye hostname hai.
+It is a hostname.
 
-Hostname resolve hota hai:
+The hostname is resolved via:
 
 ```bash
 cat /etc/hosts
@@ -380,9 +378,9 @@ Output
 ::1 localhost ip6-localhost ip6-loopback
 ```
 
-Modern Linux systems generally IPv6 prefer karte hain.
+Modern Linux systems generally prefer IPv6.
 
-Isliye
+Therefore:
 
 ```
 localhost
@@ -392,7 +390,7 @@ localhost
 ::1
 ```
 
-resolve hua.
+was resolved.
 
 ---
 
@@ -412,7 +410,7 @@ PING localhost (127.0.0.1)
 
 Meaning
 
-OS ko force kiya gaya ki sirf IPv4 use kare.
+The OS was forced to use IPv4 only.
 
 ---
 
@@ -432,7 +430,7 @@ PING localhost (::1)
 
 Meaning
 
-OS ko force kiya gaya ki sirf IPv6 use kare.
+The OS was forced to use IPv6 only.
 
 ---
 
@@ -456,7 +454,7 @@ icmp_seq=4 ttl=118 time=90.8 ms
 
 ### Explanation
 
-Ab packet machine ke andar nahi raha.
+Now, the packet is no longer inside the local machine.
 
 Actual Flow
 
@@ -482,13 +480,11 @@ Google DNS (8.8.8.8)
 
 Back to Your PC
 
-Isi wajah se RTT
+This is why the RTT was displayed as:
 
 ```
 80+ ms
 ```
-
-dikha.
 
 ---
 
@@ -500,7 +496,7 @@ dikha.
 ping 127.0.0.1
 ```
 
-Fail
+Fails
 
 Meaning:
 
@@ -590,7 +586,7 @@ Everything is working correctly.
 
 # 7. Practical Lab
 
-(Ye section exactly wahi hoga jo humne class me kiya.)
+(This section matches exactly what we performed in class.)
 
 - ✅ `ping 127.0.0.1`
 - ✅ `ping localhost`
@@ -603,25 +599,25 @@ Everything is working correctly.
 
 # 8. Interview Questions
 
-Q. Ping kaunsa protocol use karta hai?
+Q. Which protocol does Ping use?
 
 A. ICMP
 
-Q. RTT kya hota hai?
+Q. What is RTT?
 
 A. Round Trip Time
 
-Q. TTL ka full form?
+Q. What is the full form of TTL?
 
 A. Time To Live
 
-Q. Kya Ping TCP use karta hai?
+Q. Does Ping use TCP?
 
 A. No
 
-Q. Ping fail hone ka matlab host down hai?
+Q. Does a Ping failure mean the host is down?
 
-A. Nahi. ICMP block bhi ho sakta hai.
+A. No. ICMP packets could simply be blocked.
 
 ---
 
